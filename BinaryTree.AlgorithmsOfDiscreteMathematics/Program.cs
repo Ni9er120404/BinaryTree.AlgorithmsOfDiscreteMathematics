@@ -8,8 +8,15 @@
 
 			Random random = new();
 
+			Console.WriteLine("Введите коэффициент k");
+
 			double k = double.Parse(Console.ReadLine()!);
+
+			Console.WriteLine("Введите коэффициент lambda");
+
 			double lambda = double.Parse(Console.ReadLine()!);
+
+			Console.Clear();
 
 			for (int i = 0; i < 12; i++)
 			{
@@ -17,10 +24,10 @@
 
 				for (int j = 0; j < k; j++)
 				{
-					erlangValue += double.Round(-1 / lambda * Math.Log(1 - random.NextDouble()), 2);
+					erlangValue += -1 / lambda * Math.Log(1 - random.NextDouble());
 				}
 
-				tree.Insert(erlangValue);
+				tree.Insert(double.Round(erlangValue, 2));
 			}
 
 			tree.Print();
